@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Usage: theme-colors [color_name]
+# E.g.: theme-colors green && echo "This text is green!" && theme-colors reset
+
+color() {
+    echo -ne "\033[$1;$2m"
+}
+
+declare -A color_mapping=(
+    ['red']=31
+    ['green']=32
+    ['blue']=34
+    # TODO: Add more color values to expand our theme!
+    # Refer to Bash color codes. For instance:
+    # ['yellow']=33
+    # ['cyan']=36
+)
+
+if [[ -z "$1" ]]; then
+    echo "Usage: theme-colors [color_name] (e.g. green, red)"
+    exit 1
+fi
+
+if [[ $1 == 'reset' ]]; then
+    color 0 00
+else
+    # Check if the requested color is available
+    if [[ -z "${color_mapping[$1]}" ]]; then
+        echo "Error: Color '$1' is not found in the mapping file."
+        echo "Perhaps you could submit a PR to add it?"
+    else
+        color 1 "${color_mapping[$1]}"
+    fi
+fi

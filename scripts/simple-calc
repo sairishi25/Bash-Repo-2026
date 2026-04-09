@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# A basic calculator script that takes two numbers and an operator.
+# Usage: simple-calc 5 + 10
+# Note: For multiplication, you might need to escape the asterisk (*), e.g., simple-calc 5 \* 10
+
+if [ $# -ne 3 ]; then
+    echo "Usage: simple-calc <number> <operator> <number>"
+    exit 1
+fi
+
+NUM1=$1
+OP=$2
+NUM2=$3
+
+case $OP in
+    +)
+        echo "$NUM1 + $NUM2 = $((NUM1 + NUM2))"
+        ;;
+    -)
+        echo "$NUM1 - $NUM2 = $((NUM1 - NUM2))"
+        ;;
+    
+    # TODO: Add missing cases for multiplication (\*) and division (/).
+    # Follow the same syntax as addition (+) and subtraction (-) above!
+    
+    *)
+        echo "Unknown operator: $OP"
+        echo "Supported operators: +, -, *, /"
+        exit 1
+        ;;
+esac

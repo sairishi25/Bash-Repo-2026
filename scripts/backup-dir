@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# This script creates an archive for a given directory, appending the current timestamp.
+# Usage: backup-dir /var/log
+# E.g.: Creates backup_var_log_2026-04-09.tar.gz
+
+TARGET_DIR="$1"
+
+if [ -z "$TARGET_DIR" ]; then
+    echo "Usage: backup-dir [directory_path]"
+    exit 1
+fi
+
+if [ ! -d "$TARGET_DIR" ]; then
+    echo "Error: Directory '$TARGET_DIR' does not exist."
+    exit 1
+fi
+
+# Clean up path by removing trailing slashes and substituting slashes with underscores
+BASENAME=$(basename "${TARGET_DIR}")
+
+# TODO: Get the current date & time (e.g., format like "2026-04-09") using the `date` command
+# Assign it to a variable called TIMESTAMP.
+TIMESTAMP=""
+
+# Combine elements to create output file name
+ARCHIVE_NAME="backup_${BASENAME}_${TIMESTAMP}.tar.gz"
+
+# Create the archive
+if tar -czf "$ARCHIVE_NAME" "$TARGET_DIR" 2>/dev/null; then
+    echo "Successfully created backup: $ARCHIVE_NAME"
+else
+    echo "Failed to create backup."
+fi

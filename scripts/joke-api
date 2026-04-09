@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# This script fetches a random dad joke from `icanhazdadjoke.com`.
+# Usage: joke-api
+
+URL="https://icanhazdadjoke.com/"
+
+echo "Fetching a joke..."
+
+# The `curl` command below returns the joke along with extra data or in HTML unless formatting headers are passed.
+# TODO: Use `curl` to fetch the joke and output just the text.
+# Hint: You'll need to pass an `Accept` header to the curl request to specify `text/plain`. 
+# Look up `curl -H` flag in the man pages or online.
+
+curl -s "$URL"

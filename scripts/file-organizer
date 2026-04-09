@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# This script organizes files inside the given directory by their extensions.
+# Usage: file-organizer [directory]
+# E.g.: file-organizer ~/Downloads
+
+DIR="${1:-.}"
+
+if [ ! -d "$DIR" ]; then
+    echo "Directory $DIR does not exist."
+    exit 1
+fi
+
+# TODO: Add logic to create an 'Images' folder inside $DIR and move all .jpg and .png files to it.
+# Then, create a 'Documents' folder and move all .txt and .pdf files.
+# Hint: use `mkdir -p` and `mv`.
+
+echo "Organization complete!"

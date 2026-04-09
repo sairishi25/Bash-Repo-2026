@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Usage: weather-fetch [city_name]
+# E.g.: weather-fetch London
+#
+# TODO: Accept a city name as a parameter ($1). If no city is provided, fetch
+# the default weather for the current IP. Add your logic to set `CITY=$1` if
+# `$1` is not empty, otherwise leave it blank.
+
+CITY=""
+
+# Fetching from wttr.in
+curl -s "wttr.in/${CITY}?0"

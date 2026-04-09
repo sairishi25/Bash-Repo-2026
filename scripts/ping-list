@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# This script reads a text file containing domain names and checks if they are online.
+# Usage: ping-list domains.txt
+
+FILE=$1
+
+if [[ ! -f "$FILE" ]]; then
+    echo "Error: Please provide a valid text file containing domains."
+    echo "Usage: ping-list <file_with_domains>"
+    exit 1
+fi
+
+echo "Pinging domains in $FILE..."
+echo "---"
+
+# TODO: Write a `while read -r domain; do` loop.
+# Inside the loop, run `ping -c 1 "$domain"`.
+# If the ping command succeeds (i.e. exit code 0), print "$domain is UP".
+# Otherwise print "$domain is DOWN! ⚠️".
+# Ensure you close the loop at the bottom by redirecting the file into it: `< "$FILE"`.
+

@@ -1,0 +1,4 @@
+github.com
+example.com
+invalid-domain-this-should-fail.dev
+google.com

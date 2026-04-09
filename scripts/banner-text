@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# This script prints a word surrounded by a simple ASCII border.
+# Usage: banner-text "Hello Open Source"
+
+# Use the first argument as text, or a default message if none is provided.
+TEXT="${1:-Welcome to FOSS Weekend}"
+
+# TODO: Calculate the length of the string $TEXT using the syntax ${#TEXT}.
+# Then, write a loop or a clever command (like `printf` and `tr`) 
+# to create a border string composed of dashes ('-') that matches the exact length of the text.
+
+BORDER=""
+
+echo "$BORDER"
+echo "$TEXT"
+echo "$BORDER"

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# This script monitors RAM usage and alerts if it's too high.
+
+# Parse available RAM in Megabytes from the `free -m` command
+available_ram=$(free -m | awk '/^Mem:/{print $7}')
+
+echo "Available RAM: $available_ram MB"
+
+# TODO: Convert the $available_ram output to Gigabytes (divide by 1024) and print it.
+# Extra Credit TODO: Calculate the percentage of used RAM, and print a warning if usage is over 80%.
+

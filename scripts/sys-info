@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# This script outputs basic system information for troubleshooting
+
+echo "--- System Information ---"
+
+echo -n "Operating System: "
+uname -o
+
+# TODO: Add two more commands after this comment:
+# 1. Print out the current username. You can use the `whoami` command.
+# 2. Print out the current hostname of the machine. You can use the `hostname` or `uname -n` command.
+
+echo ""
+echo "--- End of Info ---"

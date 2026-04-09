@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# This script outputs a random quote from a contributor list
+# Help us grow our inspirational quotes database by adding your GitHub handle!
+
+declare -A quotes=(
+    ['torvalds']="Talk is cheap. Show me the code."
+    ['octocat']="Building the future of software together."
+    # TODO: Add your GitHub handle as the key and your favorite quote as the value!
+    # Follow the format above carefully: ['your_handle']="Your quote here."
+)
+
+# Pick a random handle
+user_handles=("${!quotes[@]}")
+chosen_user="${user_handles[$RANDOM % ${#user_handles[@]}]}"
+
+# Print it
+echo "User @${chosen_user} says: \"${quotes[$chosen_user]}\""

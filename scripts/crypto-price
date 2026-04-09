@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# This script fetches the current price of a cryptocurrency against USDT (Tether).
+# Usage: crypto-price [COIN]
+# Example: crypto-price BTC
+# Example: crypto-price ETH
+
+COIN="${1:-BTC}"
+# Ensure coin string is completely UPPERCASE using bash built-ins param expansion:
+SYMBOL="${COIN^^}USDT"
+API_URL="https://api.binance.com/api/v3/ticker/price?symbol=${SYMBOL}"
+
+echo "Fetching price for $COIN..."
+
+# TODO: Use `curl -s` to fetch the JSON from $API_URL.
+# The JSON looks similar to: {"symbol":"BTCUSDT","price":"63000.00000000"}
+# Use `grep`, `sed`, `awk`, or `jq` (if installed) to extract just the exact price number.
+# Print the output in this format: "Current price of $COIN is: $X.XX"
+

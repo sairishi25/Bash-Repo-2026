@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# This script checks the disk space usage of the root partition (/)
+# Usage: disk-alert
+
+THRESHOLD=90
+
+# TODO: Use `df -h /` and pipe (`|`) it to `awk` to extract the `Use%` value (which is usually the 5th column on the 2nd line).
+# Example starting point: 
+# USAGE=$(df -h / | awk 'NR==2 {print $5}')
+# Next, remove the '%' sign using `tr -d '%'` so you have a plain integer.
+USAGE=""
+
+if [ -z "$USAGE" ]; then
+    echo "Could not fetch disk usage, please implement the TODO!"
+    exit 1
+fi
+
+echo "Current root disk usage is at $USAGE%"
+
+# TODO: Check if $USAGE is greater than or equal to $THRESHOLD.
+# If it is, echo a "WARNING: Disk space low!" message.
+# If not, echo an "All good: Plenty of space." message.
+
