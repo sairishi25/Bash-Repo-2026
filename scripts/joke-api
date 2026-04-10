@@ -12,4 +12,4 @@ echo "Fetching a joke..."
 # Hint: You'll need to pass an `Accept` header to the curl request to specify `text/plain`. 
 # Look up `curl -H` flag in the man pages or online.
 
-curl -s "$URL"
+curl -s -H "Accept: application/json" https://icanhazdadjoke.com/ | jq -r '.joke'
