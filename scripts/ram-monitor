@@ -6,7 +6,15 @@
 available_ram=$(free -m | awk '/^Mem:/{print $7}')
 
 echo "Available RAM: $available_ram MB"
+echo "Available RAM: $((available_ram / 1024)) GB"
 
+used_ram=$(free -m | awk '/^Mem:/{print $3}')
+total_ram=$(free -m | awk '/^Mem:/{print $2}')
+ram_percent=$(( ( used_ram * 100 ) / total_ram ))
+echo "Percentage of used RAM: $ram_percent %"
+if [ $ram_percent -gt 80 ]; then
+    echo "Warning: RAM usage is above 80%"
+fi
 # TODO: Convert the $available_ram output to Gigabytes (divide by 1024) and print it.
 # Extra Credit TODO: Calculate the percentage of used RAM, and print a warning if usage is over 80%.
 
