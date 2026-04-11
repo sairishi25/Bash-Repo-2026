@@ -11,6 +11,8 @@ SYMBOL="${COIN^^}USDT"
 API_URL="https://api.binance.com/api/v3/ticker/price?symbol=${SYMBOL}"
 
 echo "Fetching price for $COIN..."
+price=$(curl -s -H "Accept: application/json" $API_URL | jq -r ".price")
+echo "Current price of $COIN is: $price"
 
 # TODO: Use `curl -s` to fetch the JSON from $API_URL.
 # The JSON looks similar to: {"symbol":"BTCUSDT","price":"63000.00000000"}
